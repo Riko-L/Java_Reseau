@@ -11,12 +11,11 @@ import java.util.Scanner;
  */
 public class App {
 
+	User user;
+
 	public int choixMenu;
 	public char run = 'O';
 
-	public String nom;
-	public String prenom;
-	public String anneeNaissance;
 	public char reponse = 'O';
 
 	private Scanner scan;
@@ -24,9 +23,11 @@ public class App {
 	int i = 0; // iteration users
 	int m = 0; // iteration messages
 	int f = 0; // iteration friends
-	public String[][] users = new String[10][4];
-	public String[][] messages = new String[10][10];
-	public String[][] friends = new String[10][10];
+	public User[] users = new User[10];
+
+	public String nom;
+	public String prenom;
+	public String anneeNaissance;
 
 	public int numeroProfil = 0;
 	public String updateInfo;
@@ -109,9 +110,8 @@ public class App {
 			System.out.println("\n");
 
 			if (this.i < 10) {
-				this.users[i][0] = this.nom;
-				this.users[i][1] = this.prenom;
-				this.users[i][2] = this.anneeNaissance;
+				user = new User(this.nom, this.prenom, this.anneeNaissance);
+				this.users[i] = user;
 				this.i++;
 			} else {
 				System.out.println("Trop d'utilisateurs \n");
@@ -136,22 +136,28 @@ public class App {
 		System.out.println("///////////////////////// AFFICHER PROFIL //////////////////////// \n");
 		System.out.println("Entrer le numero du profil entre 0 et 9 (Defaut 0)");
 		numeroProfil = this.scan.nextInt();
+		try {
 
-		System.out.println("\n Voici vos données: ");
-		System.out.println("Nom : " + this.users[numeroProfil][0]);
-		System.out.println("Prenom : " + this.users[numeroProfil][1]);
-		System.out.println("Année de naissance : " + this.users[numeroProfil][2]);
-		System.out.println("\n");
+			System.out.println("\n Voici vos données: ");
+			System.out.println("Nom : " + this.users[numeroProfil].getNom());
+			System.out.println("Prenom : " + this.users[numeroProfil].getPrenom());
+			System.out.println("Année de naissance : " + this.users[numeroProfil].getDateNaissance());
+			System.out.println("\n");
 
-		this.reponse = ' ';
+			this.reponse = ' ';
 
-		while (this.reponse != 'P' && this.reponse != 'Q') {
+			while (this.reponse != 'P' && this.reponse != 'Q') {
 
-			System.out.println("Retour menu P | Quitter le Programme Q");
-			scan.nextLine();
-			this.reponse = scan.nextLine().charAt(0);
-			if (this.reponse == 'Q')
-				this.run = 'N';
+				System.out.println("Retour menu P | Quitter le Programme Q");
+				scan.nextLine();
+				this.reponse = scan.nextLine().charAt(0);
+				if (this.reponse == 'Q')
+					this.run = 'N';
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("//////////////////// User VIDE ///////////////////////////////");
 
 		}
 
@@ -164,7 +170,7 @@ public class App {
 		numeroProfil = this.scan.nextInt();
 
 		while (this.reponse == 'O') {
-			System.out.println("UPDATE de " + this.users[numeroProfil][0] + "\n");
+			System.out.println("UPDATE de " + this.users[numeroProfil].getNom() + "\n");
 
 			System.out.println("1) Changer le nom:");
 			System.out.println("2) Changer le prénom:");
@@ -179,19 +185,19 @@ public class App {
 			case 1:
 				System.out.println("Entrer le nom:");
 				updateInfo = this.scan.nextLine();
-				this.users[numeroProfil][0] = updateInfo;
+				this.users[numeroProfil].setNom(updateInfo);
 				System.out.println("Enregister");
 				break;
 			case 2:
 				System.out.println("Entrer le Prenom:");
 				updateInfo = this.scan.nextLine();
-				this.users[numeroProfil][1] = updateInfo;
+				this.users[numeroProfil].setPrenom(updateInfo);
 				System.out.println("Enregister");
 				break;
 			case 3:
 				System.out.println("Entrer le Année de Naissnace:");
 				updateInfo = this.scan.nextLine();
-				this.users[numeroProfil][2] = updateInfo;
+				this.users[numeroProfil].setDateNaissance(updateInfo);
 				System.out.println("Enregistrer");
 				break;
 			case 4:
@@ -199,15 +205,18 @@ public class App {
 				break;
 			}
 
-			this.reponse = ' ';
+			if (reponse != 'P') {
 
-			while (this.reponse != 'O' && this.reponse != 'P' && this.reponse != 'Q') {
+				this.reponse = ' ';
 
-				System.out.println("Retour menu Précedent O | Retour menu Principal P | Quitter le Programme Q");
-				this.reponse = scan.nextLine().charAt(0);
-				if (this.reponse == 'Q')
-					this.run = 'N';
+				while (this.reponse != 'O' && this.reponse != 'Q') {
 
+					System.out.println("Retour menu Précedent O  | Quitter le Programme Q");
+					this.reponse = scan.nextLine().charAt(0);
+					if (this.reponse == 'Q')
+						this.run = 'N';
+
+				}
 			}
 		}
 	}
@@ -219,11 +228,10 @@ public class App {
 			System.out.println("Entrer le numero du profil de votre correspondant entre 0 et 9 (Defaut 0)");
 			numeroProfil = this.scan.nextInt();
 			scan.nextLine();
-			System.out.println("Entrer votre message pour " + this.users[numeroProfil][0] + " :");
+			System.out.println("Entrer votre message pour " + this.users[numeroProfil].getNom() + " :");
 			this.message = scan.nextLine();
 			if (this.i < 10 & this.m < 10) {
-				this.messages[numeroProfil][m] = this.message;
-				this.m++;
+				this.users[numeroProfil].setMessages(this.message);
 			}
 			System.out.println("Message Envoyé !");
 
@@ -248,10 +256,10 @@ public class App {
 			System.out.println("Entrer le numero du profil de votre correspondant entre 0 et 9 (Defaut 0)");
 			numeroProfil = this.scan.nextInt();
 			scan.nextLine();
-			System.out.println("voici les messages de l'utilisateur " + this.users[numeroProfil][0] + " \n");
-			for (int i = 0; i < messages[numeroProfil].length; i++) {
-				if (messages[numeroProfil][i] != null) {
-					System.out.println("Message numéro " + i + ":" + messages[numeroProfil][i]);
+			System.out.println("voici les messages de l'utilisateur " + this.users[numeroProfil].getNom() + " \n");
+			for (int i = 0; i < this.users[numeroProfil].getMessages().length; i++) {
+				if (this.users[numeroProfil].getMessages()[i] != null) {
+					System.out.println("Message numéro " + i + ":" + this.users[numeroProfil].getMessages()[i]);
 				}
 			}
 
@@ -279,11 +287,11 @@ public class App {
 			System.out.println("voici une liste de profils entrer son numéro pour l'ajouter en ami");
 
 			for (int i = 0; i < this.users.length; i++) {
-				if (this.users[i][0] != null) {
-					
+				if (this.users[i] != null) {
+
 					if (this.users[i] != this.users[numeroProfil]) {
 						this.listUsersVide = false;
-						System.out.println("[" + i + "] " + this.users[i][0]);
+						System.out.println("[" + i + "] " + this.users[i].getNom());
 					}
 				} else {
 
@@ -294,7 +302,7 @@ public class App {
 				System.out.print("Ajouter le numero : ");
 				this.friend = this.scan.nextLine();
 				if (f < 10) {
-					this.friends[numeroProfil][f] = this.friend;
+					this.users[numeroProfil].addFriends(users[Integer.parseInt(this.friend)]);
 					this.f++;
 					System.out.println("Ami ajouté");
 				}
@@ -316,31 +324,36 @@ public class App {
 	public void showFriend() {
 		this.reponse = 'O';
 		System.out.println("///////////////////////// AFFICHER LISTE AMIS ////////////////////////// \n");
+		try {
+			while (this.reponse == 'O') {
+				System.out.println(
+						"Entrer le numero du profil dont vous voulez afficher les amis entre 0 et 9 (Defaut 0)");
+				numeroProfil = this.scan.nextInt();
+				scan.nextLine();
 
-		while (this.reponse == 'O') {
-			System.out.println("Entrer le numero du profil dont vous voulez afficher les amis entre 0 et 9 (Defaut 0)");
-			numeroProfil = this.scan.nextInt();
-			scan.nextLine();
-			
-			System.out.println("voici les amis de l'utilisateur " + this.users[numeroProfil][0] + " \n");
-			
-			for (int i = 0; i < this.friends[numeroProfil].length; i++) {
-				if (friends[numeroProfil][i] != null) {
-					System.out.println("Ami numéro " + i + ":" + users[Integer.parseInt(friends[numeroProfil][i])][0]);
+				System.out.println("voici les amis de l'utilisateur " + this.users[numeroProfil].getNom() + " \n");
+
+				for (int i = 0; i < this.users[numeroProfil].getFriends().length; i++) {
+					if (this.users[numeroProfil].getFriends()[i] != null) {
+						
+						System.out.println("Ami numéro " + i + ":"
+								+  users[numeroProfil].getFriends()[i].getNom());
+					}
+				}
+
+				this.reponse = ' ';
+				while (this.reponse != 'P' && this.reponse != 'Q' && this.reponse != 'O') {
+
+					System.out.println("voir les amis d'un autre profil O | Retour menu P | Quitter le Programme Q");
+					this.reponse = scan.nextLine().charAt(0);
+					if (this.reponse == 'Q')
+						this.run = 'N';
+
 				}
 			}
-
-			this.reponse = ' ';
-			while (this.reponse != 'P' && this.reponse != 'Q' && this.reponse != 'O') {
-
-				System.out.println("voir les amis d'un autre profil O | Retour menu P | Quitter le Programme Q");
-				this.reponse = scan.nextLine().charAt(0);
-				if (this.reponse == 'Q')
-					this.run = 'N';
-
-			}
+		} catch (Exception e) {
+			System.out.println("User VIDE" + e);
 		}
 	}
-	
 
 }
