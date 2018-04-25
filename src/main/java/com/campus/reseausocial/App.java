@@ -6,13 +6,18 @@ package com.campus.reseausocial;
 import java.util.Scanner;
 
 /**
+ * Classe de démarrage de mon application
+ * 
  * @author eric
  *
  */
 public class App {
 
-	User user;
-
+	/**
+	 * @see User
+	 */
+	User user; 
+	
 	public int choixMenu;
 	public char run = 'O';
 
@@ -231,7 +236,7 @@ public class App {
 			System.out.println("Entrer votre message pour " + this.users[numeroProfil].getNom() + " :");
 			this.message = scan.nextLine();
 			if (this.i < 10 & this.m < 10) {
-				this.users[numeroProfil].setMessages(this.message);
+				this.users[numeroProfil].addMessages(this.message);
 			}
 			System.out.println("Message Envoyé !");
 
