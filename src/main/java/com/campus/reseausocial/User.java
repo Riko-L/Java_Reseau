@@ -8,6 +8,7 @@ package com.campus.reseausocial;
  */
 public class User {
 
+	private int niveauDeDroit = 0;
 	/**
 	 * @see #setNom(String)
 	 */
@@ -158,6 +159,39 @@ public class User {
 	public void addMessages(String message) {
 		this.messages[this.m] = message;
 		this.m++;
+	}
+
+	/**
+	 * @param messages
+	 *            the messages to set
+	 */
+	protected void setMessages(String[] messages) {
+		this.messages = messages;
+	}
+
+	protected void viderMessages() {
+		this.setMessages(new String[10]);
+	}
+
+	/**
+	 * Supprime un message
+	 * 
+	 * @param nbre
+	 *            Numéro de l'index à supprimer
+	 */
+	public void delMessages(int nbre) {
+		this.messages[nbre] = null;
+		this.m--;
+		System.out.println("Message " + nbre + " à été supprimé !");
+	}
+
+	public boolean isModerateur() {
+		return false;
+
+	}
+
+	public int getNiveauDeDroit() {
+		return niveauDeDroit;
 	}
 
 }
