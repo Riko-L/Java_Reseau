@@ -29,8 +29,7 @@ public class App {
 	private Scanner scan;
 
 	int i = 0; // iteration users
-	int m = 0; // iteration messages
-	int f = 0; // iteration friends
+	
 
 	public User[] users = new User[10];
 
@@ -405,7 +404,6 @@ public class App {
 		}
 
 	}
-
 	public void showMessage() {
 		if (this.currentUser.isModerateur()) {
 			this.reponse = 'O';
@@ -442,7 +440,6 @@ public class App {
 		}
 
 	}
-
 	public void addFriend() {
 		if (this.currentUser.isModerateur()) {
 			this.reponse = 'O';

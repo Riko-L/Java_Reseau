@@ -1,14 +1,14 @@
 package com.campus.reseausocial;
 
 /**
- * Class Utilisateur Permet d'enregistrer les utilisateurs
+ * Class Utilisateur permet d'enregistrer les utilisateurs
  * 
  * @author eric
  *
  */
 public class User {
 
-	private int niveauDeDroit = 0;
+	
 	/**
 	 * @see #setNom(String)
 	 */
@@ -165,11 +165,11 @@ public class User {
 	 * @param messages
 	 *            the messages to set
 	 */
-	protected void setMessages(String[] messages) {
+	public void setMessages(String[] messages) {
 		this.messages = messages;
 	}
 
-	protected void viderMessages() {
+	public void viderMessages() {
 		this.setMessages(new String[10]);
 	}
 
@@ -191,7 +191,7 @@ public class User {
 	}
 
 	public int getNiveauDeDroit() {
-		return niveauDeDroit;
+		return 0;
 	}
 
 }
