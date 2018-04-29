@@ -1,14 +1,13 @@
 package com.campus.reseausocial;
 
 /**
- * Class Utilisateur permet d'enregistrer les utilisateurs
+ * Class Utilisateur permet de créer des utilisateurs
  * 
  * @author eric
  *
  */
 public class User {
 
-	
 	/**
 	 * @see #setNom(String)
 	 */
@@ -30,12 +29,12 @@ public class User {
 	private User[] friends = new User[10];
 
 	/**
-	 * ItÃ©rateur message
+	 * Itérateur message
 	 */
 	private int m = 0;
 
 	/**
-	 * ItÃ©rateur friend
+	 * Itérateur friend
 	 */
 	private int f = 0;
 
@@ -50,9 +49,9 @@ public class User {
 	 * @param nom
 	 *            Nom de l'utilisateur
 	 * @param prenom
-	 *            PrÃ©nom de l'utilisateur
+	 *            Prénom de l'utilisateur
 	 * @param dateNaissance
-	 *            AnnÃ©e de naissance de l'utilisateur
+	 *            Année de naissance de l'utilisateur
 	 */
 	public User(String nom, String prenom, String dateNaissance) {
 
@@ -82,7 +81,7 @@ public class User {
 	}
 
 	/**
-	 * Obtenir le PrÃ©nom de l'utilisateur
+	 * Obtenir le Prénom de l'utilisateur
 	 * 
 	 * @return prenom
 	 */
@@ -91,17 +90,17 @@ public class User {
 	}
 
 	/**
-	 * Affecter le PrÃ©nom de l'utilisateur
+	 * Affecter le Prénom de l'utilisateur
 	 * 
 	 * @param prenom
-	 *            Nouveau PrÃ©nom de l'utilisateur
+	 *            Nouveau Prénom de l'utilisateur
 	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 
 	/**
-	 * Obtenir l'annÃ©e de naissance de l'utilisateur
+	 * Obtenir l'année de naissance de l'utilisateur
 	 * 
 	 * @return dateNaissance
 	 */
@@ -110,10 +109,10 @@ public class User {
 	}
 
 	/**
-	 * Affecter l'annÃ©e de naissance de l'utilisateur
+	 * Affecter l'année de naissance de l'utilisateur
 	 * 
 	 * @param dateNaissance
-	 *            Nouvelle annÃ©e de naissance de l'utilisateur
+	 *            Nouvelle année de naissance de l'utilisateur
 	 */
 	public void setDateNaissance(String dateNaissance) {
 		this.dateNaissance = dateNaissance;
@@ -132,7 +131,7 @@ public class User {
 	 * Ajout d'un ami.
 	 *
 	 * @param friend
-	 *            Ami Ã  ajouter Ã  l'utilisateur
+	 *            Ami à ajouter
 	 * 
 	 */
 	public void addFriends(User friend) {
@@ -153,7 +152,7 @@ public class User {
 	 * Ajoute un message
 	 * 
 	 * @param message
-	 *            Message Ã  ajouter Ã  l'utilisateur
+	 *            Message pour l'utilisateur
 	 * 
 	 */
 	public void addMessages(String message) {
@@ -163,12 +162,16 @@ public class User {
 
 	/**
 	 * @param messages
-	 *            the messages to set
+	 *            Tableau de messages
 	 */
 	public void setMessages(String[] messages) {
 		this.messages = messages;
 	}
 
+	/**
+	 * Vide la messagerie de l'utilisateur
+	 * 
+	 */
 	public void viderMessages() {
 		this.setMessages(new String[10]);
 	}
@@ -177,19 +180,28 @@ public class User {
 	 * Supprime un message
 	 * 
 	 * @param nbre
-	 *            NumÃ©ro de l'index Ã  supprimer
+	 *            Numéro de l'index à supprimer
 	 */
 	public void delMessages(int nbre) {
 		this.messages[nbre] = null;
 		this.m--;
-		System.out.println("Message " + nbre + " Ã  Ã©tÃ© supprimÃ© !");
 	}
 
+	/**
+	 * Savoir si l'utilisateur est un modérateur
+	 * 
+	 * @return false
+	 */
 	public boolean isModerateur() {
 		return false;
 
 	}
 
+	/**
+	 * Retourn le niveau de modération 0 pour un utilisateur
+	 * 
+	 * @return 0
+	 */
 	public int getNiveauDeDroit() {
 		return 0;
 	}
