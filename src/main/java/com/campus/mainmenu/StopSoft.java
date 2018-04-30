@@ -4,24 +4,23 @@ import com.campus.reseausocial.User;
 
 public class StopSoft extends MenuEntry {
 
-	boolean stop = false;
-
+	
 	@Override
-	String display() {
+	public String display() {
 
 		msg = "Arrêt du progamme";
 		return msg;
 	}
 
 	@Override
-	void exec() {
-		System.out.println("Programme Arrêté");
-		stop = true;
+	public void exec() {
+		System.out.println("Arrêt du Programme");
+		System.exit(-1);
 
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {
@@ -29,11 +28,6 @@ public class StopSoft extends MenuEntry {
 		}
 
 		return user.isModerateur();
-
-	}
-
-	public boolean stop() {
-		return stop;
 
 	}
 

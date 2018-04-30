@@ -12,7 +12,7 @@ public class ListAllUser extends MenuEntry {
 	 * @see com.campus.mainmenu.MenuEntry#display()
 	 */
 	@Override
-	String display() {
+	public String display() {
 		msg = "Lister tous les utilisateurs";
 		
 		return msg;
@@ -22,7 +22,7 @@ public class ListAllUser extends MenuEntry {
 	 * @see com.campus.mainmenu.MenuEntry#exec()
 	 */
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.listUser();
 
 	}
@@ -31,7 +31,7 @@ public class ListAllUser extends MenuEntry {
 	 * @see com.campus.mainmenu.MenuEntry#isModerator(com.campus.reseausocial.User)
 	 */
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

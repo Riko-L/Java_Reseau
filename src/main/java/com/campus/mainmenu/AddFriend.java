@@ -7,7 +7,7 @@ public class AddFriend extends MenuEntry{
 	
 
 	@Override
-	String display() {
+	public String display() {
 		switch (this.display) {
 		case 0:
 			msg = "Ajouter un ami";
@@ -20,14 +20,14 @@ public class AddFriend extends MenuEntry{
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.addFriend();
 		
 	}
 
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

@@ -1,9 +1,11 @@
 package com.campus.reseausocial;
 
+import java.util.InputMismatchException;
 import java.util.Optional;
 import java.util.Scanner;
 
 import com.campus.mainmenu.Menu;
+import com.campus.submenu.SubMenuUpdateUser;
 
 public class ReseauSocial {
 
@@ -11,6 +13,7 @@ public class ReseauSocial {
 	static private Moderateur mod;
 	static public User currentUser;
 	static private Menu menu;
+	static private SubMenuUpdateUser subMenu;
 
 	static private int numeroProfil;
 	static private int currentUserIndex;
@@ -34,6 +37,7 @@ public class ReseauSocial {
 
 		start();
 
+		subMenu = new SubMenuUpdateUser();
 		menu = new Menu();
 	}
 
@@ -58,6 +62,7 @@ public class ReseauSocial {
 
 			} else {
 				System.out.println(">>>>>>>>>>>>>>>>>>>>> Créeation de votre 1er utilisateur <<<<<<<<<<<<<<<<<<<<<<<<");
+				rep = 'N';
 				addUser();
 				selectUser();
 			}
@@ -165,12 +170,23 @@ public class ReseauSocial {
 	}
 
 	private static int choixClavier() {
+		int choixMenu = -1;
+		while (true) {
+			System.out.print("Entrer un numéro : ");
+			try {
+				try {
+					choixMenu = scan.nextInt();
+					scan.nextLine();
+					return choixMenu;
+				} catch (InputMismatchException err) {
+					throw new ErrSaisieExecption();
+				}
+			} catch (ErrSaisieExecption err) {
+				System.out.println(err.getMessage());
+				scan.next();
+			}
 
-		System.out.print("Entrer un numéro : ");
-		int choixMenu = scan.nextInt();
-		scan.nextLine();
-
-		return choixMenu;
+		}
 
 	}
 
@@ -182,19 +198,28 @@ public class ReseauSocial {
 		numeroProfil = choixClavier();
 
 		if (users[numeroProfil] != null && users[numeroProfil] instanceof Moderateur) {
+
 			System.out.println("Entrer le niveau à attribuer : [1] - [2]");
-			int level = choixClavier();
-			if (level == 1 || level == 2) {
-				((Moderateur) users[numeroProfil]).setNiveauDeDroit(level);
-				System.out
-						.println("***********************************************************************************");
-				System.out.println("Niveau moderateur modifié");
-				System.out
-						.println("***********************************************************************************");
-			} else {
-				System.out.println("Niveau moderateur non valide  | niveau = 1 || niveau = 2");
-			}
+
+			int level;
+			do {
+				level = choixClavier();
+
+				if (level == 1 || level == 2) {
+					((Moderateur) users[numeroProfil]).setNiveauDeDroit(level);
+					System.out.println(
+							"***********************************************************************************");
+					System.out.println("Niveau moderateur modifié");
+					System.out.println(
+							"***********************************************************************************");
+
+				} else {
+					System.out.println("Niveau moderateur non valide  | niveau = 1 || niveau = 2");
+				}
+			} while (level != 1 && level != 2);
+
 		}
+
 	}
 
 	public static void generateUsers() {
@@ -326,33 +351,29 @@ public class ReseauSocial {
 
 			while (reponse == 'O') {
 
-				System.out.println("[1] Changer Nom:");
-				System.out.println("[2] Changer Prénom:");
-				System.out.println("[3] Changer Année de naissance:");
-				System.out.println("[4] Retour au menu");
 
-				int choix = choixClavier();
+				subMenu.createMenu();				
 
-				switch (choix) {
-				case 1:
+				switch (subMenu.getChoixUser()) {
+				case 0:
 					System.out.print("Entrer Nom:");
 					updateInfo = scan.nextLine();
 					users[numeroProfil].setNom(updateInfo);
 					System.out.println("Enregister");
 					break;
-				case 2:
+				case 1:
 					System.out.print("Entrer Prénom:");
 					updateInfo = scan.nextLine();
 					users[numeroProfil].setPrenom(updateInfo);
 					System.out.println("Enregister");
 					break;
-				case 3:
+				case 2:
 					System.out.print("Entrer Année de naissance:");
 					updateInfo = scan.nextLine();
 					users[numeroProfil].setDateNaissance(updateInfo);
 					System.out.println("Enregistrer");
 					break;
-				case 4:
+				case 3:
 					reponse = ' ';
 				}
 
@@ -371,33 +392,29 @@ public class ReseauSocial {
 			System.out.println("*********************************************************************************");
 			System.out.println("Modification de " + currentUser.getNom() + " " + currentUser.getPrenom());
 			System.out.println("*********************************************************************************");
-			System.out.println("[1] Changer Nom:");
-			System.out.println("[2] Changer Prénom:");
-			System.out.println("[3] Changer Année de naissance:");
-			System.out.println("[4] Retour au menu");
 
-			int choix = choixClavier();
+			subMenu.createMenu();				
 
-			switch (choix) {
-			case 1:
+			switch (subMenu.getChoixUser()) {
+			case 0:
 				System.out.print("Entrer Nom:");
 				updateInfo = scan.nextLine();
 				currentUser.setNom(updateInfo);
 				System.out.println("Enregister");
 				break;
-			case 2:
+			case 1:
 				System.out.print("Entrer Prénom:");
 				updateInfo = scan.nextLine();
 				currentUser.setPrenom(updateInfo);
 				System.out.println("Enregister");
 				break;
-			case 3:
+			case 2:
 				System.out.print("Entrer Année de naissance:");
 				updateInfo = scan.nextLine();
 				currentUser.setDateNaissance(updateInfo);
 				System.out.println("Enregistrer");
 				break;
-			case 4:
+			case 3:
 				reponse = ' ';
 			}
 			System.out.println(

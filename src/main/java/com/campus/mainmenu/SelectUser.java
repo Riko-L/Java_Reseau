@@ -7,19 +7,19 @@ public class SelectUser extends MenuEntry {
 
 
 	@Override
-	String display() {
+	public String display() {
 		msg = "Selection de l'utilisateur courrant";
 		return msg;
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.selectUser();
 
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

@@ -3,12 +3,10 @@ package com.campus.mainmenu;
 import com.campus.reseausocial.ReseauSocial;
 import com.campus.reseausocial.User;
 
-
 public class ShowFriend extends MenuEntry {
 
-
 	@Override
-	String display() {
+	public String display() {
 		switch (this.display) {
 		case 0:
 			msg = "Afficher mes amis";
@@ -21,14 +19,13 @@ public class ShowFriend extends MenuEntry {
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.showFriend();
-		
+
 	}
 
-
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {
@@ -45,7 +42,7 @@ public class ShowFriend extends MenuEntry {
 	public void setAcl(int acl) {
 		this.acl = acl;
 	}
-	
+
 	public void setDisplay(int display) {
 		this.display = display;
 	}

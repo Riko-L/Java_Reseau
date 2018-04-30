@@ -8,19 +8,19 @@ public class UpdateLevel extends MenuEntry {
 	private int acl = 1;
 	
 	@Override
-	String display() {
+	public String display() {
 		msg = "Modifier niveau de modération";
 		return msg;
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.changeLevel();
 		
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {
@@ -31,18 +31,18 @@ public class UpdateLevel extends MenuEntry {
 	}
 
 	@Override
-	int getAcl() {
+	public int getAcl() {
 		return acl;
 	}
 
 	@Override
-	void setAcl(int acl) {
+	public void setAcl(int acl) {
 		this.acl = acl;
 		
 	}
 
 	@Override
-	void setDisplay(int display) {
+	public void setDisplay(int display) {
 		this.display = display;
 		
 	}

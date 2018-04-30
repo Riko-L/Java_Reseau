@@ -30,17 +30,23 @@ public abstract class MenuEntry {
 	 * 
 	 * @return Une chaine de caractère de l'élément du menu demandé
 	 */
-	abstract String display();
+	public abstract String display();
 	
-	abstract void exec();
+	public abstract void exec();
 	
-	abstract boolean isModerator(User user);
+	
+	public  int exec(int index) {
+		return -1;
+	}
 
-	abstract int getAcl();
-
-	abstract void setAcl(int acl);
 	
-	abstract void setDisplay(int display);
+	public abstract boolean isModerator(User user);
+
+	public abstract int getAcl();
+
+	public abstract void setAcl(int acl);
+	
+	public abstract void setDisplay(int display);
 
 	
 }

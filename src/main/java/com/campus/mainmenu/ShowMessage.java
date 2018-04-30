@@ -6,7 +6,7 @@ import com.campus.reseausocial.User;
 public class ShowMessage extends MenuEntry {
 
 	@Override
-	String display() {
+	public String display() {
 		switch (this.display) {
 		case 0:
 			msg = "Afficher mes messages";
@@ -19,13 +19,13 @@ public class ShowMessage extends MenuEntry {
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.showMessage();
 
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

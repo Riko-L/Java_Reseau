@@ -1,44 +1,50 @@
-package com.campus.mainmenu;
+package com.campus.submenu;
 
+import com.campus.mainmenu.MenuEntry;
 import com.campus.reseausocial.ReseauSocial;
 import com.campus.reseausocial.User;
 
-public class CreateUser extends MenuEntry {
+public class Nom extends MenuEntry {
 
-	private int acl = 1;
+	public Nom() {
+
+	}
 
 	@Override
 	public String display() {
-		msg = "Créer un nouvel utilisateur";
+		msg = "Nom :";
 		return msg;
 	}
 
 	@Override
 	public void exec() {
-		ReseauSocial.addUser();
+
+	}
+
+	public int exec(int index) {
+
+		return index;
 	}
 
 	@Override
 	public boolean isModerator(User user) {
-		if (user.isModerateur()) {
-			setDisplay(1);
-		} else {
-			setDisplay(0);
-		}
-
-		return user.isModerateur();
+		return false;
 	}
 
+	@Override
 	public int getAcl() {
-		return acl;
+		return 0;
 	}
 
+	@Override
 	public void setAcl(int acl) {
 		this.acl = acl;
+
 	}
 
+	@Override
 	public void setDisplay(int display) {
-		this.display = display;
+
 	}
 
 }

@@ -6,7 +6,7 @@ import com.campus.reseausocial.User;
 public class ShowUser extends MenuEntry {
 
 	@Override
-	String display() {
+	public String display() {
 		switch (this.display) {
 		case 0:
 			msg = "Afficher mes informations";
@@ -19,13 +19,13 @@ public class ShowUser extends MenuEntry {
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.showProfil();
 
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

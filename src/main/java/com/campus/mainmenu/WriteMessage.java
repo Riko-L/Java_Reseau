@@ -6,7 +6,7 @@ import com.campus.reseausocial.User;
 public class WriteMessage extends MenuEntry {
 
 	@Override
-	String display() {
+	public String display() {
 		switch (this.display) {
 		case 0:
 			msg = "Ecrire un message";
@@ -20,13 +20,13 @@ public class WriteMessage extends MenuEntry {
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.writeMessage();
 
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

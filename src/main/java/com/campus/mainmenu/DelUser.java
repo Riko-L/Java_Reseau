@@ -8,20 +8,20 @@ public class DelUser extends MenuEntry {
 	private int acl = 1;
 
 	@Override
-	String display() {
+	public String display() {
 
 		msg = "Supprimer un utilisateur";
 		return msg;
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.delUser();
 
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

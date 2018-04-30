@@ -1,13 +1,17 @@
 package com.campus.mainmenu;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
+import com.campus.reseausocial.ErrSaisieExecption;
 import com.campus.reseausocial.ReseauSocial;
 
 public class Menu {
 
 	private MenuEntry[] menu;
-	private MenuEntry[] menuGenerate;
+	private List<MenuEntry> menuGenerate;
 	private Scanner clavier;
 	private CreateUser createUser;
 	private ShowUser showUser;
@@ -29,7 +33,7 @@ public class Menu {
 	public Menu() {
 
 		menu = new MenuEntry[15];
-		menuGenerate = new MenuEntry[15];
+		menuGenerate = new ArrayList<MenuEntry>();
 		clavier = new Scanner(System.in);
 		createUser = new CreateUser();
 		showUser = new ShowUser();
@@ -67,37 +71,65 @@ public class Menu {
 	}
 
 	private void createMenu() {
-		while (!stopSoft.stop()) {
-			int g = 0;
-			for (int i = 0; i < menu.length; i++) {
-				if (menu[i] != null) {
-					if (menu[i].isModerator(ReseauSocial.currentUser)
-							&& (menu[i].getAcl() == 1 || menu[i].getAcl() == 0)) {
-						menuGenerate[g] = menu[i];
-						System.out.println("[" + g + "] " + menuGenerate[g].display());
-						g++;
-					} else if (!menu[i].isModerator(ReseauSocial.currentUser) && menu[i].getAcl() == 0) {
-						menuGenerate[g] = menu[i];
-						System.out.println("[" + g + "] " + menuGenerate[g].display());
-						g++;
-					}
+
+		int g = 0;
+		menuGenerate = new ArrayList<MenuEntry>();
+		
+		for (int i = 0; i < menu.length; i++) {
+			if (menu[i] != null) {
+
+				if (menu[i].isModerator(ReseauSocial.currentUser) && (menu[i].getAcl() == 1 || menu[i].getAcl() == 0)) {
+					menuGenerate.add(menu[i]);
+					System.out.println("[" + g + "] " + menuGenerate.get(g).display());
+					g++;
+				} else if (!menu[i].isModerator(ReseauSocial.currentUser) && menu[i].getAcl() == 0) {
+					menuGenerate.add(menu[i]);
+					System.out.println("[" + g + "] " + menuGenerate.get(g).display());
+					g++;
 				}
 
 			}
-			System.out.print("Votre Choix :");
-			try {
 
-				choixInputClavier = clavier.nextInt();
-				menuGenerate[choixInputClavier].exec();
+		}
 
-			} catch (Exception err) {
+		do {
 
-				System.out.println("ATTENTION >> Entrer un chiffre correspondant au menu");
-				clavier.nextLine();
-				choixInputClavier = clavier.nextInt();
-				menuGenerate[choixInputClavier].exec();
+			choixInputClavier = choixClavier();
+
+			if (choixInputClavier >= menuGenerate.size()) {
+				System.out.println("Merci d'entrer une valeur du menu");
+			} else {
+				if (menuGenerate.contains(menu[choixInputClavier])) {
+					menuGenerate.get(choixInputClavier).exec();
+					createMenu();
+				}
 
 			}
-		}
+
+		} while (choixInputClavier >= menuGenerate.size());
+
 	}
+
+	private int choixClavier() {
+
+		int choixMenu = -1;
+		while (true) {
+			System.out.print("Entrer un numéro : ");
+			try {
+				try {
+					choixMenu = clavier.nextInt();
+					clavier.nextLine();
+					return choixMenu;
+				} catch (InputMismatchException err) {
+					throw new ErrSaisieExecption();
+				}
+			} catch (ErrSaisieExecption err) {
+				System.out.println(err.getMessage());
+				clavier.next();
+			}
+
+		}
+
+	}
+
 }

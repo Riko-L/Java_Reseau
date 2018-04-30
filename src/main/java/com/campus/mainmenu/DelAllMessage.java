@@ -8,20 +8,20 @@ public class DelAllMessage extends MenuEntry {
 	private int acl = 1;
 
 	@Override
-	String display() {
+	public String display() {
 
 		msg = "Effacer la messagerie d'un utilisateur";
 		return msg;
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.delMessagerie();
 
 	}
 
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {

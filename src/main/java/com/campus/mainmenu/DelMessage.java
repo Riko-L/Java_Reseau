@@ -3,11 +3,10 @@ package com.campus.mainmenu;
 import com.campus.reseausocial.ReseauSocial;
 import com.campus.reseausocial.User;
 
-public class DelMessage extends MenuEntry{
-	
-	
+public class DelMessage extends MenuEntry {
+
 	@Override
-	String display() {
+	public String display() {
 		switch (this.display) {
 		case 0:
 			msg = "Supprimer un message";
@@ -20,14 +19,13 @@ public class DelMessage extends MenuEntry{
 	}
 
 	@Override
-	void exec() {
+	public void exec() {
 		ReseauSocial.delMessage();
-		
+
 	}
 
-
 	@Override
-	boolean isModerator(User user) {
+	public boolean isModerator(User user) {
 		if (user.isModerateur()) {
 			setDisplay(1);
 		} else {
@@ -36,7 +34,7 @@ public class DelMessage extends MenuEntry{
 
 		return user.isModerateur();
 	}
-	
+
 	public int getAcl() {
 		return acl;
 	}
@@ -44,10 +42,9 @@ public class DelMessage extends MenuEntry{
 	public void setAcl(int acl) {
 		this.acl = acl;
 	}
-	
+
 	public void setDisplay(int display) {
 		this.display = display;
 	}
-	
 
 }
