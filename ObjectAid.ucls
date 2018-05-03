@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="false" dependencies="false" nesting-relationships="false" router="FAN">  
+  <class id="1" language="java" name="com.campus.mainmenu.ListAllUser" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/ListAllUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="3356" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.campus.mainmenu.ShowFriend" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/ShowFriend.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="1796" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.campus.mainmenu.WriteMessage" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/WriteMessage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="821" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.campus.mainmenu.AddFriend" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/AddFriend.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="2576" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.campus.mainmenu.ShowUser" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/ShowUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="236" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.campus.mainmenu.DelMessage" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/DelMessage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="3161" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.campus.mainmenu.MenuEntry" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/MenuEntry.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="244" width="155" x="1699" y="37"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.campus.mainmenu.SelectUser" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/SelectUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="2381" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.campus.mainmenu.StopSoft" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/StopSoft.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="2186" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.campus.mainmenu.UpdateUser" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/UpdateUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="41" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.campus.mainmenu.DelAllMessage" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/DelAllMessage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="626" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.campus.mainmenu.ShowMessage" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/ShowMessage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="155" x="2966" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.campus.mainmenu.UpdateLevel" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/UpdateLevel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="1601" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.campus.mainmenu.Menu" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/Menu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="424" width="184" x="767" y="37"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.campus.mainmenu.CreateUser" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/CreateUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="2771" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.campus.mainmenu.DelUser" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/mainmenu/DelUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="1211" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.campus.submenu.RetourMenu" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/submenu/RetourMenu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="1991" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.campus.submenu.AnneeNaissance" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/submenu/AnneeNaissance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="1016" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.campus.submenu.Nom" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/submenu/Nom.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="1406" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.campus.submenu.Prenom" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/submenu/Prenom.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="155" x="431" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.campus.submenu.SubMenuUpdateUser" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/submenu/SubMenuUpdateUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="262" width="163" x="1243" y="37"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.campus.reseausocial.Moderateur" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/reseausocial/Moderateur.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="154" width="211" x="3289" y="1253"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.campus.administration.Commercial" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/administration/Commercial.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="181" x="3786" y="1253"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.campus.administration.Directeur" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/administration/Directeur.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="168" x="4007" y="1253"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="25" language="java" name="com.campus.reseausocial.Salarie" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/reseausocial/Salarie.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="139" x="3521" y="1447"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="26" language="java" name="com.campus.administration.Developpeur" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/administration/Developpeur.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="185" x="3561" y="1253"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.campus.reseausocial.ReseauSocial" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/reseausocial/ReseauSocial.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="676" width="184" x="292" y="37"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.campus.reseausocial.User" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/reseausocial/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="460" width="195" x="3551" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.campus.reseausocial.Personne" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/reseausocial/Personne.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="118" width="144" x="3668" y="37"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.campus.administration.Marketeur" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/administration/Marketeur.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="173" x="4215" y="1253"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.campus.administration.Employe" project="reseausocial" 
+    file="/reseausocial/src/main/java/com/campus/administration/Employe.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="190" width="165" x="3786" y="753"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="41">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <realization id="42">    
+    <bendpoint x="3530" y="1253"/>    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <realization id="43">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="45">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="47">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="49">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="51">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="55">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="56">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="58">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="false" package="true" initial-value="true" signature="true" 
+    sort-features="false" accessors="true" visibility="false">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>

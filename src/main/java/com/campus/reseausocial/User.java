@@ -6,22 +6,12 @@ package com.campus.reseausocial;
  * @author eric
  *
  */
-public class User {
+public class User extends Personne {
 
 	/**
-	 * @see #setNom(String)
+	 * @see #setPseudo(String)
 	 */
-	private String nom;
-
-	/**
-	 * @see #setPrenom(String)
-	 */
-	private String prenom;
-
-	/**
-	 * @see #setDateNaissance(String)
-	 */
-	private String dateNaissance;
+	private String pseudo;
 
 	/**
 	 * Tableau contenant la liste des amis Maximum 11 Amis
@@ -53,11 +43,12 @@ public class User {
 	 * @param dateNaissance
 	 *            Année de naissance de l'utilisateur
 	 */
-	public User(String nom, String prenom, String dateNaissance) {
+	public User(String nom, String prenom, String pseudo , String dateDeNaissance) {
 
 		this.nom = nom;
 		this.prenom = prenom;
-		this.dateNaissance = dateNaissance;
+		this.dateDeNaissance = dateDeNaissance;
+		this.pseudo = pseudo;
 
 	}
 
@@ -104,8 +95,8 @@ public class User {
 	 * 
 	 * @return dateNaissance
 	 */
-	public String getDateNaissance() {
-		return dateNaissance;
+	public String getDateDeNaissance() {
+		return dateDeNaissance;
 	}
 
 	/**
@@ -114,8 +105,29 @@ public class User {
 	 * @param dateNaissance
 	 *            Nouvelle année de naissance de l'utilisateur
 	 */
-	public void setDateNaissance(String dateNaissance) {
-		this.dateNaissance = dateNaissance;
+	public void setDateDeNaissance(String dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
+	}
+
+	/**
+	 * Obtenir le Pseudo de l'utilisateur
+	 * 
+	 * @return Pseudo de l'utilisateur
+	 * 
+	 */
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	/**
+	 * Affecter un nouveau pseudo à l'utilisateur
+	 * 
+	 * @param pseudo
+	 *            Nouveau pseudo de l'utilisateur
+	 * 
+	 */
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 
 	/**
@@ -202,7 +214,7 @@ public class User {
 	 * 
 	 * @return 0
 	 */
-	public int getNiveauDeDroit() {
+	public int getNiveau() {
 		return 0;
 	}
 

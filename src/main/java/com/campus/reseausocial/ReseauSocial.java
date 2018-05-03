@@ -29,6 +29,7 @@ public class ReseauSocial {
 
 	static private String nom;
 	static private String prenom;
+	static private String pseudo;
 	static private String anneeNaissance;
 
 	public ReseauSocial() {
@@ -78,13 +79,13 @@ public class ReseauSocial {
 			for (int i = 0; i < users.length; i++) {
 				if (users[i] != null && users[i] != currentUser) {
 					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " | " + users[i].getPrenom()
-							+ " | " + users[i].getDateNaissance() + " | " + users[i].isModerateur() + " | "
-							+ users[i].getNiveauDeDroit());
+							+ " | " + users[i].getDateDeNaissance() + " | " + users[i].isModerateur() + " | "
+							+ users[i].getNiveau());
 				}
 				if (users[i] != null && users[i] == currentUser) {
 					System.out.println("Utilisateur [" + i + "]*: " + users[i].getNom() + " | " + users[i].getPrenom()
-							+ " | " + users[i].getDateNaissance() + " | " + users[i].isModerateur() + " | "
-							+ users[i].getNiveauDeDroit());
+							+ " | " + users[i].getDateDeNaissance() + " | " + users[i].isModerateur() + " | "
+							+ users[i].getNiveau());
 				}
 			}
 			break;
@@ -110,7 +111,7 @@ public class ReseauSocial {
 			for (int i = 0; i < users.length; i++) {
 				if (users[i] != null && users[i].isModerateur() && users[i] != currentUser) {
 					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " " + users[i].getPrenom()
-							+ " | Niveau de modération : " + users[i].getNiveauDeDroit());
+							+ " | Niveau de modération : " + users[i].getNiveau());
 				}
 			}
 			break;
@@ -206,7 +207,7 @@ public class ReseauSocial {
 				level = choixClavier();
 
 				if (level == 1 || level == 2) {
-					((Moderateur) users[numeroProfil]).setNiveauDeDroit(level);
+					((Moderateur) users[numeroProfil]).setNiveau(level);
 					System.out.println(
 							"***********************************************************************************");
 					System.out.println("Niveau moderateur modifié");
@@ -227,21 +228,21 @@ public class ReseauSocial {
 		System.out.println("***********************************************************************************");
 		users = new User[10];
 		int g = 0;
-		mod = new Moderateur("LE DEVEDEC", "Eric", "1982");
-		mod.setNiveauDeDroit(2);
+		mod = new Moderateur("LE DEVEDEC", "Eric","riko74", "1982");
+		mod.setNiveau(2);
 		users[g] = mod;
-		user = new User("BIAGI", "Alexandre", "1968");
+		user = new User("BIAGI", "Alexandre", "BigBoy" , "1968");
 		users[g += 1] = user;
-		user = new User("DUPON", "Jean", "1945");
+		user = new User("DUPON", "Jean", "The Cat","1945");
 		users[g += 1] = user;
-		user = new User("PIG", "Peppa", "1999");
+		user = new User("PIG", "Peppa", "Petit cochon", "1999");
 		users[g += 1] = user;
-		user = new User("BOND", "Jams", "1765");
+		user = new User("BOND", "Jams", "251Hys", "1765");
 		users[g += 1] = user;
-		user = new User("PIGNION", "François", "2008");
+		user = new User("PIGNION", "François","PF2008", "2008");
 		users[g += 1] = user;
-		mod = new Moderateur("FILLION", "Charles", "1972");
-		mod.setNiveauDeDroit(1);
+		mod = new Moderateur("FILLION", "Charles","Fcha74", "1972");
+		mod.setNiveau(1);
 		users[g += 1] = mod;
 
 		currentUser = users[0];
@@ -268,8 +269,8 @@ public class ReseauSocial {
 
 			System.out.print("Niveau de Modération: [1] ou [2]");
 			int choix = choixClavier();
-			mod = new Moderateur(nom, prenom, anneeNaissance);
-			mod.setNiveauDeDroit(choix);
+			mod = new Moderateur(nom, prenom,pseudo, anneeNaissance);
+			mod.setNiveau(choix);
 
 			if (i < 10) {
 
@@ -285,7 +286,7 @@ public class ReseauSocial {
 		} else if (reponse == 'N') {
 
 			if (i < 10) {
-				user = new User(nom, prenom, anneeNaissance);
+				user = new User(nom, prenom,pseudo, anneeNaissance);
 
 				users[i] = user;
 
@@ -312,7 +313,7 @@ public class ReseauSocial {
 				System.out.println("*********************************************************************************");
 				System.out.println("* Nom : " + users[numeroProfil].getNom());
 				System.out.println("* Prénom : " + users[numeroProfil].getPrenom());
-				System.out.println("* Année de naissance : " + users[numeroProfil].getDateNaissance());
+				System.out.println("* Année de naissance : " + users[numeroProfil].getDateDeNaissance());
 				System.out.println("*********************************************************************************");
 			}
 
@@ -323,7 +324,7 @@ public class ReseauSocial {
 				System.out.println("*********************************************************************************");
 				System.out.println("* Nom : " + currentUser.getNom());
 				System.out.println("* Prénom : " + currentUser.getPrenom());
-				System.out.println("* Année de naissance : " + currentUser.getDateNaissance());
+				System.out.println("* Année de naissance : " + currentUser.getDateDeNaissance());
 				System.out.println("*********************************************************************************");
 			}
 
@@ -370,7 +371,7 @@ public class ReseauSocial {
 				case 2:
 					System.out.print("Entrer Année de naissance:");
 					updateInfo = scan.nextLine();
-					users[numeroProfil].setDateNaissance(updateInfo);
+					users[numeroProfil].setDateDeNaissance(updateInfo);
 					System.out.println("Enregistrer");
 					break;
 				case 3:
@@ -383,7 +384,7 @@ public class ReseauSocial {
 						"*******************************************************************************************");
 				System.out.println("* Nom : " + users[numeroProfil].getNom());
 				System.out.println("* Prénom : " + users[numeroProfil].getPrenom());
-				System.out.println("* Année de naissance : " + users[numeroProfil].getDateNaissance());
+				System.out.println("* Année de naissance : " + users[numeroProfil].getDateDeNaissance());
 				System.out.println(
 						"*******************************************************************************************");
 
@@ -411,7 +412,7 @@ public class ReseauSocial {
 			case 2:
 				System.out.print("Entrer Année de naissance:");
 				updateInfo = scan.nextLine();
-				currentUser.setDateNaissance(updateInfo);
+				currentUser.setDateDeNaissance(updateInfo);
 				System.out.println("Enregistrer");
 				break;
 			case 3:
@@ -423,7 +424,7 @@ public class ReseauSocial {
 					"*******************************************************************************************");
 			System.out.println("* Nom : " + currentUser.getNom());
 			System.out.println("* Prénom : " + currentUser.getPrenom());
-			System.out.println("* Année de naissance : " + currentUser.getDateNaissance());
+			System.out.println("* Année de naissance : " + currentUser.getDateDeNaissance());
 			System.out.println(
 					"*******************************************************************************************");
 
@@ -640,7 +641,7 @@ public class ReseauSocial {
 	}
 
 	public static void delUser() {
-		if (currentUser.isModerateur() && currentUser.getNiveauDeDroit() == 2) {
+		if (currentUser.isModerateur() && currentUser.getNiveau() == 2) {
 			System.out.println(
 					"******************************* SUPPRIMER UTILISATEUR ***********************************");
 			System.out.println(
@@ -712,7 +713,7 @@ public class ReseauSocial {
 	}
 
 	public static void listUser() {
-		if (currentUser.isModerateur() && currentUser.getNiveauDeDroit() == 2) {
+		if (currentUser.isModerateur() && currentUser.getNiveau() == 2) {
 			System.out.println(
 					"********************************  UTILISATEUR  DU RESEAU  **************************************");
 			System.out.println(

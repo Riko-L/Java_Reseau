@@ -9,20 +9,22 @@ package com.campus.reseausocial;
  * @author eric
  *
  */
-public class Moderateur extends User {
+public class Moderateur extends User implements Salarie{
 
-	private int niveauDeDroit;
+	private int niveau;
 
 	/**
 	 * @param nom
 	 *            Nom du modérateur
 	 * @param prenom
 	 *            Prénom du Modérateur
+	 * @param pseudo
+	 *            Pseudo du Modérateur
 	 * @param dateNaissance
 	 *            Date de naissance du Modérateur
 	 */
-	public Moderateur(String nom, String prenom, String dateNaissance) {
-		super(nom, prenom, dateNaissance);
+	public Moderateur(String nom, String prenom, String pseudo, String dateNaissance) {
+		super(nom, prenom, pseudo, dateNaissance);
 
 	}
 
@@ -36,8 +38,8 @@ public class Moderateur extends User {
 	 * 
 	 * @return niveauDeDroit
 	 */
-	public int getNiveauDeDroit() {
-		return niveauDeDroit;
+	public int getNiveau() {
+		return niveau;
 	}
 
 	/**
@@ -47,11 +49,11 @@ public class Moderateur extends User {
 	 * <li>2 - a en plus le droit de supprimer des utilisateurs</li>
 	 * </ul>
 	 * 
-	 * @param niveauDeDroit
+	 * @param niveau
 	 *            Niveau de droit Modérateur un chiffre 1 ou 2
 	 */
-	public void setNiveauDeDroit(int niveauDeDroit) {
-		this.niveauDeDroit = niveauDeDroit;
+	public void setNiveau(int niveau) {
+		this.niveau = niveau;
 	}
 
 	/**
@@ -62,6 +64,12 @@ public class Moderateur extends User {
 	@Override
 	public boolean isModerateur() {
 		return true;
+	}
+
+	@Override
+	public void recevoirPaiement() {
+		
+		
 	}
 
 }
