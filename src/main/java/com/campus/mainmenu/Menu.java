@@ -27,15 +27,18 @@ public class Menu {
 	private ShowFriend showFriend;
 	private StopSoft stopSoft;
 	private UpdateLevel updateLevel;
+	private DelFriend delFriend;
+	private SearchUser searchUser;
 
 	private int choixInputClavier;
 
 	public Menu() {
 
-		menu = new MenuEntry[15];
+		menu = new MenuEntry[17];
 		menuGenerate = new ArrayList<MenuEntry>();
 		clavier = new Scanner(System.in);
 		createUser = new CreateUser();
+		
 		showUser = new ShowUser();
 		selectUser = new SelectUser();
 		updateUser = new UpdateUser();
@@ -47,12 +50,15 @@ public class Menu {
 		delAllMessage = new DelAllMessage();
 		addFriend = new AddFriend();
 		showFriend = new ShowFriend();
+		delFriend = new DelFriend();
 		stopSoft = new StopSoft();
 		updateLevel = new UpdateLevel();
+		searchUser = new SearchUser();
 
 		int i = 0;
 		this.menu[i += 1] = createUser;
 		this.menu[i += 1] = showUser;
+		this.menu[i += 1] = searchUser;
 		this.menu[i += 1] = selectUser;
 		this.menu[i += 1] = updateUser;
 		this.menu[i += 1] = delUser;
@@ -62,6 +68,7 @@ public class Menu {
 		this.menu[i += 1] = delMessage;
 		this.menu[i += 1] = delAllMessage;
 		this.menu[i += 1] = addFriend;
+		this.menu[i += 1] = delFriend;
 		this.menu[i += 1] = showFriend;
 		this.menu[i += 1] = updateLevel;
 		this.menu[i += 1] = stopSoft;
@@ -99,10 +106,8 @@ public class Menu {
 			if (choixInputClavier >= menuGenerate.size()) {
 				System.out.println("Merci d'entrer une valeur du menu");
 			} else {
-				if (menuGenerate.contains(menu[choixInputClavier])) {
 					menuGenerate.get(choixInputClavier).exec();
 					createMenu();
-				}
 
 			}
 

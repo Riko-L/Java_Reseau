@@ -1,6 +1,8 @@
 package com.campus.reseausocial;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -23,9 +25,7 @@ public class ReseauSocial {
 
 	static private Scanner scan;
 
-	static private int i = 0; // iteration users
-
-	static private User[] users = new User[10];
+	static private List<User> users = new ArrayList<User>();
 
 	static private String nom;
 	static private String prenom;
@@ -76,68 +76,80 @@ public class ReseauSocial {
 
 		switch (args) {
 		case "ALL":
-			for (int i = 0; i < users.length; i++) {
-				if (users[i] != null && users[i] != currentUser) {
-					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " | " + users[i].getPrenom()
-							+ " | " + users[i].getDateDeNaissance() + " | " + users[i].isModerateur() + " | "
-							+ users[i].getNiveau());
+			for (int i = 0; i < users.size(); i++) {
+				if (!users.isEmpty() && users.get(i) != users.get(currentUserIndex)) {
+					System.out.println("Utilisateur [" + i + "] : " + users.get(i).getNom() + " | "
+							+ users.get(i).getPrenom() + " | " + users.get(i).getDateDeNaissance() + " | "
+							+ users.get(i).isModerateur() + " | " + users.get(i).getNiveau());
 				}
-				if (users[i] != null && users[i] == currentUser) {
-					System.out.println("Utilisateur [" + i + "]*: " + users[i].getNom() + " | " + users[i].getPrenom()
-							+ " | " + users[i].getDateDeNaissance() + " | " + users[i].isModerateur() + " | "
-							+ users[i].getNiveau());
+				if (!users.isEmpty() && users.get(i) == users.get(currentUserIndex)) {
+					System.out.println("Utilisateur [" + i + "]*: " + users.get(i).getNom() + " | "
+							+ users.get(i).getPrenom() + " | " + users.get(i).getDateDeNaissance() + " | "
+							+ users.get(i).isModerateur() + " | " + users.get(i).getNiveau());
 				}
 			}
 			break;
 		case "FULLNAME":
-			for (int i = 0; i < users.length; i++) {
-				if (users[i] != null && users[i] != currentUser) {
-					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " " + users[i].getPrenom());
-				}
 
+			for (int i = 0; i < users.size(); i++) {
+
+				if (!users.isEmpty() && users.get(i) != users.get(currentUserIndex)) {
+					System.out.println(
+							"Utilisateur [" + i + "] : " + users.get(i).getNom() + " " + users.get(i).getPrenom());
+				}
 			}
+
 			break;
 
 		case "FULLNAME+CURRENT":
-			for (int i = 0; i < users.length; i++) {
-				if (users[i] != null) {
-					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " " + users[i].getPrenom());
+			for (int i = 0; i < users.size(); i++) {
+				if (!users.isEmpty()) {
+					System.out.println(
+							"Utilisateur [" + i + "] : " + users.get(i).getNom() + " " + users.get(i).getPrenom());
 				}
 
 			}
 			break;
 
 		case "MOD":
-			for (int i = 0; i < users.length; i++) {
-				if (users[i] != null && users[i].isModerateur() && users[i] != currentUser) {
-					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " " + users[i].getPrenom()
-							+ " | Niveau de modération : " + users[i].getNiveau());
+			for (int i = 0; i < users.size(); i++) {
+				if (!users.isEmpty() && users.get(i).isModerateur()) {
+					System.out.println("Utilisateur [" + i + "] : " + users.get(i).getNom() + " "
+							+ users.get(i).getPrenom() + " | Niveau de modération : " + users.get(i).getNiveau());
 				}
 			}
 			break;
 		case "FULLNAME+NB-MESSAGE":
-			for (int i = 0, nbmsg = 0; i < users.length; i++) {
-				if (users[i] != null && users[i].getMessages() != null) {
+			for (int i = 0, nbmsg = 0; i < users.size(); i++) {
+				if (!users.isEmpty()) { // ajouter !users.get(i).getMessages().isEmpty() pour lister juste les
+										// utilisateurs avec des messages
 
-					for (int m = 0; m < users[i].getMessages().length; m++) {
-						if (users[i].getMessages()[m] != null) {
+					for (int m = 0; m < users.get(i).getMessages().size(); m++) {
+						if (!users.get(i).getMessages().isEmpty()) {
 							nbmsg++;
 						}
 					}
-					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " " + users[i].getPrenom()
-							+ " | Nombre de messages : [" + nbmsg + "]");
+					System.out.println("Utilisateur [" + i + "] : " + users.get(i).getNom() + " "
+							+ users.get(i).getPrenom() + " | Nombre de messages : [" + nbmsg + "]");
 					nbmsg = 0;
 				}
 			}
 			break;
 
 		case "MESSAGE":
-			if (userIndex != null && users[userIndex] != null) {
+			if (userIndex != null && users.contains(users.get(userIndex))) {
 
-				for (int i = 0; i < users[userIndex].getMessages().length; i++) {
+				for (int i = 0; i < users.get(userIndex).getMessages().size(); i++) {
 
-					if (users[userIndex].getMessages()[i] != null) {
-						System.out.println(" Message  [" + i + "] : \"" + users[userIndex].getMessages()[i] + "\"");
+					if (!users.get(userIndex).getMessages().isEmpty()) {
+						System.out.println(" Message  [" + i + "] : ");
+						System.out.println(
+								" 	From : \"" + users.get(userIndex).getMessages().get(i).getExpediteur() + "\"");
+						System.out.println(
+								" 	To : \"" + users.get(userIndex).getMessages().get(i).getDestinataire() + "\"");
+						System.out.println(
+								" 	Contenu : \"" + users.get(userIndex).getMessages().get(i).getContenu() + "\"");
+						System.out.println("***************");
 					}
 				}
 			}
@@ -145,23 +157,28 @@ public class ReseauSocial {
 			break;
 
 		case "FRIENDS":
-			if (userIndex != null && users[userIndex] != null) {
+			if (userIndex != null && users.contains(users.get(userIndex))) {
 
-				for (int i = 0; i < users[userIndex].getFriends().length; i++) {
-					if (users[userIndex].getFriends()[i] != null) {
+				for (int i = 0; i < users.get(userIndex).getFriends().size(); i++) {
+					if (!users.get(userIndex).getFriends().isEmpty()) {
 
-						System.out.println("Ami [" + i + "] : " + users[userIndex].getFriends()[i].getNom() + " "
-								+ users[userIndex].getFriends()[i].getPrenom());
+						System.out.println("Ami [" + i + "] : " + users.get(userIndex).getFriends().get(i).getNom()
+								+ " " + users.get(userIndex).getFriends().get(i).getPrenom());
 					}
 				}
 			}
 
 			break;
-		case "FULLNAME-USER":
+		case "FULLNAME-USER-FRIENDS":
 
-			for (int i = 0; i < users.length; i++) {
-				if (users[i] != null && users[i] != currentUser && users[i] != users[userIndex]) {
-					System.out.println("Utilisateur [" + i + "] : " + users[i].getNom() + " " + users[i].getPrenom());
+			for (int i = 0; i < users.size(); i++) {
+				if (!users.isEmpty() && users.contains(currentUser) && users.get(i) != users.get(userIndex)) {
+
+					if (!users.get(userIndex).getFriends().contains(users.get(i))) {
+
+						System.out.println(
+								"Utilisateur [" + i + "] : " + users.get(i).getNom() + " " + users.get(i).getPrenom());
+					}
 				}
 			}
 			break;
@@ -198,7 +215,7 @@ public class ReseauSocial {
 
 		numeroProfil = choixClavier();
 
-		if (users[numeroProfil] != null && users[numeroProfil] instanceof Moderateur) {
+		if (users.get(numeroProfil) != null && users.get(numeroProfil) instanceof Moderateur) {
 
 			System.out.println("Entrer le niveau à attribuer : [1] - [2]");
 
@@ -207,7 +224,7 @@ public class ReseauSocial {
 				level = choixClavier();
 
 				if (level == 1 || level == 2) {
-					((Moderateur) users[numeroProfil]).setNiveau(level);
+					((Moderateur) users.get(numeroProfil)).setNiveau(level);
 					System.out.println(
 							"***********************************************************************************");
 					System.out.println("Niveau moderateur modifié");
@@ -226,28 +243,30 @@ public class ReseauSocial {
 	public static void generateUsers() {
 		System.out.println("********************* GENERATION >> UTILISATEUR | MODERATEUR **********************");
 		System.out.println("***********************************************************************************");
-		users = new User[10];
-		int g = 0;
-		mod = new Moderateur("LE DEVEDEC", "Eric","riko74", "1982");
-		mod.setNiveau(2);
-		users[g] = mod;
-		user = new User("BIAGI", "Alexandre", "BigBoy" , "1968");
-		users[g += 1] = user;
-		user = new User("DUPON", "Jean", "The Cat","1945");
-		users[g += 1] = user;
-		user = new User("PIG", "Peppa", "Petit cochon", "1999");
-		users[g += 1] = user;
-		user = new User("BOND", "Jams", "251Hys", "1765");
-		users[g += 1] = user;
-		user = new User("PIGNION", "François","PF2008", "2008");
-		users[g += 1] = user;
-		mod = new Moderateur("FILLION", "Charles","Fcha74", "1972");
-		mod.setNiveau(1);
-		users[g += 1] = mod;
+		users = new ArrayList<User>();
 
-		currentUser = users[0];
+		mod = new Moderateur("LE DEVEDEC", "Eric", "riko74", "1982");
+		mod.setNiveau(2);
+		users.add(mod);
+		user = new User("BIAGI", "Alexandre", "BigBoy", "1968");
+		users.add(user);
+		user = new User("DUPON", "Jean", "The Cat", "1945");
+		users.add(user);
+		user = new User("PIG", "Peppa", "Petit cochon", "1999");
+		users.add(user);
+		user = new User("BOND", "Jams", "251Hys", "1765");
+		users.add(user);
+		user = new User("PIGNION", "François", "PF2008", "2008");
+		users.add(user);
+		mod = new Moderateur("FILLION", "Charles", "Fcha74", "1972");
+		mod.setNiveau(1);
+		users.add(mod);
+
+		currentUser = users.get(0);
 		currentUserIndex = 0;
 		System.out.println("Génération terminé");
+		System.out.println("Nombre d'utilisateurs créer : " + users.size());
+		System.out.println("***********************************************************************************");
 
 	}
 
@@ -269,32 +288,23 @@ public class ReseauSocial {
 
 			System.out.print("Niveau de Modération: [1] ou [2]");
 			int choix = choixClavier();
-			mod = new Moderateur(nom, prenom,pseudo, anneeNaissance);
+			mod = new Moderateur(nom, prenom, pseudo, anneeNaissance);
 			mod.setNiveau(choix);
 
-			if (i < 10) {
-
-				users[i] = mod;
-
-				i++;
-			} else {
-				System.out.println("Trop d'utilisateurs");
-			}
+			users.add(mod);
 
 			System.out.println("\"Modérateur Créer\"");
+			System.out.println("Nombre d'utilisateurs : " + users.size());
+			System.out.println("***********************************************************************************");
 
 		} else if (reponse == 'N') {
 
-			if (i < 10) {
-				user = new User(nom, prenom,pseudo, anneeNaissance);
+			user = new User(nom, prenom, pseudo, anneeNaissance);
+			users.add(user);
 
-				users[i] = user;
-
-				i++;
-			} else {
-				System.out.println("Trop d'utilisateurs");
-			}
 			System.out.println("\"Utilisateur Créer\"");
+			System.out.println("Nombre d'utilisateurs : " + users.size());
+			System.out.println("***********************************************************************************");
 		}
 
 	}
@@ -307,18 +317,18 @@ public class ReseauSocial {
 
 			numeroProfil = choixClavier();
 
-			if (users[numeroProfil] != null) {
+			if (users.get(numeroProfil) != null) {
 
 				System.out.println(">>>>>>>>>>>>>>>>>>>>     Voici les informations    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				System.out.println("*********************************************************************************");
-				System.out.println("* Nom : " + users[numeroProfil].getNom());
-				System.out.println("* Prénom : " + users[numeroProfil].getPrenom());
-				System.out.println("* Année de naissance : " + users[numeroProfil].getDateDeNaissance());
+				System.out.println("* Nom : " + users.get(numeroProfil).getNom());
+				System.out.println("* Prénom : " + users.get(numeroProfil).getPrenom());
+				System.out.println("* Année de naissance : " + users.get(numeroProfil).getDateDeNaissance());
 				System.out.println("*********************************************************************************");
 			}
 
 		} else {
-			if (users[currentUserIndex] != null) {
+			if (users.get(currentUserIndex) != null) {
 
 				System.out.println(">>>>>>>>>>>>>>>>>>>>     Voici les informations    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				System.out.println("*********************************************************************************");
@@ -346,32 +356,31 @@ public class ReseauSocial {
 			reponse = 'O';
 
 			System.out.println("*********************************************************************************");
-			System.out
-					.println("Modification de " + users[numeroProfil].getNom() + " " + users[numeroProfil].getPrenom());
+			System.out.println(
+					"Modification de " + users.get(numeroProfil).getNom() + " " + users.get(numeroProfil).getPrenom());
 			System.out.println("*********************************************************************************");
 
 			while (reponse == 'O') {
 
-
-				subMenu.createMenu();				
+				subMenu.createMenu();
 
 				switch (subMenu.getChoixUser()) {
 				case 0:
 					System.out.print("Entrer Nom:");
 					updateInfo = scan.nextLine();
-					users[numeroProfil].setNom(updateInfo);
+					users.get(numeroProfil).setNom(updateInfo);
 					System.out.println("Enregister");
 					break;
 				case 1:
 					System.out.print("Entrer Prénom:");
 					updateInfo = scan.nextLine();
-					users[numeroProfil].setPrenom(updateInfo);
+					users.get(numeroProfil).setPrenom(updateInfo);
 					System.out.println("Enregister");
 					break;
 				case 2:
 					System.out.print("Entrer Année de naissance:");
 					updateInfo = scan.nextLine();
-					users[numeroProfil].setDateDeNaissance(updateInfo);
+					users.get(numeroProfil).setDateDeNaissance(updateInfo);
 					System.out.println("Enregistrer");
 					break;
 				case 3:
@@ -382,9 +391,9 @@ public class ReseauSocial {
 						">>>>>>>>>>>>>>>>>>>>     Voici les nouvelles informations    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				System.out.println(
 						"*******************************************************************************************");
-				System.out.println("* Nom : " + users[numeroProfil].getNom());
-				System.out.println("* Prénom : " + users[numeroProfil].getPrenom());
-				System.out.println("* Année de naissance : " + users[numeroProfil].getDateDeNaissance());
+				System.out.println("* Nom : " + users.get(numeroProfil).getNom());
+				System.out.println("* Prénom : " + users.get(numeroProfil).getPrenom());
+				System.out.println("* Année de naissance : " + users.get(numeroProfil).getDateDeNaissance());
 				System.out.println(
 						"*******************************************************************************************");
 
@@ -394,7 +403,7 @@ public class ReseauSocial {
 			System.out.println("Modification de " + currentUser.getNom() + " " + currentUser.getPrenom());
 			System.out.println("*********************************************************************************");
 
-			subMenu.createMenu();				
+			subMenu.createMenu();
 
 			switch (subMenu.getChoixUser()) {
 			case 0:
@@ -440,14 +449,15 @@ public class ReseauSocial {
 			list("FULLNAME", Optional.empty());
 			numeroProfil = choixClavier();
 
-			if (users[numeroProfil] != null) {
-				System.out.println("Entrer votre message pour " + users[numeroProfil].getNom() + " "
-						+ users[numeroProfil].getPrenom() + " :");
+			if (users.get(numeroProfil) != null) {
+				System.out.println("Entrer votre message pour " + users.get(numeroProfil).getNom() + " "
+						+ users.get(numeroProfil).getPrenom() + " :");
 				System.out.print(">> ");
 
 				String message = scan.nextLine();
 
-				users[numeroProfil].addMessages(message);
+				users.get(numeroProfil).addMessages(new Message(users.get(currentUserIndex).fullName(),
+						users.get(numeroProfil).fullName(), message));
 				System.out.println("*********************************************************************************");
 				System.out.println("Message Envoyé !");
 				System.out.println("*********************************************************************************");
@@ -476,9 +486,9 @@ public class ReseauSocial {
 
 				numeroProfil = choixClavier();
 				System.out.println("*********************************************************************************");
-				if (users[numeroProfil] != null) {
-					System.out.println("Messages de l'utilisateur : " + users[numeroProfil].getNom() + " "
-							+ users[numeroProfil].getPrenom());
+				if (users.get(numeroProfil) != null) {
+					System.out.println("Messages de l'utilisateur : " + users.get(numeroProfil).getNom() + " "
+							+ users.get(numeroProfil).getPrenom());
 
 					list("MESSAGE", Optional.of(numeroProfil));
 				}
@@ -514,20 +524,20 @@ public class ReseauSocial {
 				numeroProfil = choixClavier();
 				System.out.println(
 						"************************************************************************************************");
-				list("FULLNAME-USER", Optional.of(numeroProfil));
+				list("FULLNAME-USER-FRIENDS", Optional.of(numeroProfil));
 
 				System.out
 						.println("Voici une liste des différents utilisateur.Entrer son numéro pour l'ajouter en ami");
 
 				numeroFriend = choixClavier();
 
-				users[numeroProfil].addFriends(users[numeroFriend]);
-				users[numeroFriend].addFriends(users[numeroProfil]);
+				users.get(numeroProfil).addFriends(users.get(numeroFriend));
+				users.get(numeroFriend).addFriends(users.get(numeroProfil));
 				System.out.println(
 						"************************************************************************************************");
-				System.out.println("Ami : " + users[numeroFriend].getNom() + " " + users[numeroFriend].getPrenom()
-						+ " à bien été ajouté au profil de " + users[numeroProfil].getNom() + " "
-						+ users[numeroProfil].getPrenom());
+				System.out.println("Ami : " + users.get(numeroFriend).getNom() + " "
+						+ users.get(numeroFriend).getPrenom() + " à bien été ajouté au profil de "
+						+ users.get(numeroProfil).getNom() + " " + users.get(numeroProfil).getPrenom());
 				System.out.println(
 						"************************************************************************************************");
 
@@ -544,16 +554,16 @@ public class ReseauSocial {
 			System.out.println("******************************* AJOUTER UN AMI **********************************");
 			System.out.println("*********************************************************************************");
 
-			list("FULLNAME", Optional.empty());
+			list("FULLNAME-USER-FRIENDS", Optional.of(currentUserIndex));
 
 			System.out.println("Voici une liste des différents utilisateur.Entrer son numéro pour l'ajouter en ami");
 
 			numeroFriend = choixClavier();
 
-			currentUser.addFriends(users[numeroFriend]);
-			users[numeroFriend].addFriends(users[currentUserIndex]);
+			currentUser.addFriends(users.get(numeroFriend));
+			users.get(numeroFriend).addFriends(users.get(currentUserIndex));
 			System.out.println("*********************************************************************************");
-			System.out.println("Ami : " + users[numeroFriend].getNom() + " " + users[numeroFriend].getPrenom()
+			System.out.println("Ami : " + users.get(numeroFriend).getNom() + " " + users.get(numeroFriend).getPrenom()
 					+ " à bien été ajouté");
 			System.out.println("*********************************************************************************");
 		}
@@ -572,10 +582,10 @@ public class ReseauSocial {
 
 				numeroProfil = choixClavier();
 
-				if (users[numeroProfil] != null) {
+				if (users.get(numeroProfil) != null) {
 
-					System.out.println("voici les amis de l'utilisateur " + users[numeroProfil].getNom() + " "
-							+ users[numeroProfil].getPrenom());
+					System.out.println("voici les amis de l'utilisateur " + users.get(numeroProfil).getNom() + " "
+							+ users.get(numeroProfil).getPrenom());
 					System.out.println(
 							"*********************************************************************************");
 					list("FRIENDS", Optional.of(numeroProfil));
@@ -601,6 +611,80 @@ public class ReseauSocial {
 		}
 	}
 
+	public static void delFriend() {
+		if (currentUser.isModerateur()) {
+			reponse = 'O';
+			System.out.println("******************************* EFFACER AMIS ***********************************");
+			System.out.println("*********************************************************************************");
+
+			while (reponse == 'O') {
+
+				list("FULLNAME+CURRENT", Optional.empty());
+
+				numeroProfil = choixClavier();
+
+				if (users.get(numeroProfil) != null) {
+
+					System.out.println("voici les amis de l'utilisateur " + users.get(numeroProfil).getNom() + " "
+							+ users.get(numeroProfil).getPrenom());
+					System.out.println(
+							"*********************************************************************************");
+					list("FRIENDS", Optional.of(numeroProfil));
+					System.out.println(
+							"*********************************************************************************");
+				}
+				numeroFriend = choixClavier();
+
+				users.get(numeroProfil).delFriend(numeroFriend);
+				users.get(numeroFriend).delFriend(numeroProfil);
+
+				System.out.println("Votre ami à été supprimé");
+
+				reponse = ' ';
+
+				while (reponse != 'P' && reponse != 'O') {
+
+					System.out.println("voir les amis d'un autre profil O | Retour menu P ");
+					reponse = scan.nextLine().charAt(0);
+
+				}
+			}
+
+		} else {
+			System.out.println("******************************* EFFACER AMIS ***********************************");
+			System.out.println("*********************************************************************************");
+
+			list("FRIENDS", Optional.of(currentUserIndex));
+
+			numeroFriend = choixClavier();
+
+			users.get(currentUserIndex).delFriend(numeroFriend);
+			users.get(numeroFriend).delFriend(currentUserIndex);
+
+			System.out.println("Votre ami à été supprimé");
+
+			System.out.println("*********************************************************************************");
+		}
+	}
+
+	public static void search() {
+		System.out.println("******************************* RECHERCHE UTILISATEUR ***********************************");
+		System.out.println("*****************************************************************************************");
+		System.out.println("Utilisateur à rechercher : ");
+		String search = scan.nextLine();
+
+		for (User user : users) {
+			if (user.getNom().toLowerCase().equals(search.toLowerCase())) {
+				System.out.println("L'utilisateur " + search +   " est présent dans le réseau");
+				System.out.println("Il possède l'index n°: " +  users.indexOf(user));
+				System.out.println("*****************************************************************************************");
+			
+		}
+		}
+		
+		
+	}
+
 	public static void delMessage() {
 		if (currentUser.isModerateur()) {
 			reponse = 'O';
@@ -615,7 +699,7 @@ public class ReseauSocial {
 				list("MESSAGE", Optional.of(numeroProfil));
 				System.out.println(
 						"*************************************************************************************");
-				users[numeroProfil].delMessages(choixClavier());
+				users.get(numeroProfil).delMessages(choixClavier());
 				System.out.println(
 						"*************************************************************************************");
 				System.out.println("Message supprimé !");
@@ -648,8 +732,7 @@ public class ReseauSocial {
 					"*****************************************************************************************");
 
 			list("FULLNAME", Optional.empty());
-			users[choixClavier()] = null;
-			i--;
+			users.remove(choixClavier());
 			System.out.println(
 					"*****************************************************************************************");
 
@@ -680,11 +763,11 @@ public class ReseauSocial {
 
 			numeroProfil = choixClavier();
 
-			users[numeroProfil].viderMessages();
+			users.get(numeroProfil).viderMessages();
 			System.out.println(
 					"************************************************************************************************");
-			System.out.println("La messagerie de l'utilisateur " + users[numeroProfil].getNom() + " "
-					+ users[numeroProfil].getPrenom() + " est vide");
+			System.out.println("La messagerie de l'utilisateur " + users.get(numeroProfil).getNom() + " "
+					+ users.get(numeroProfil).getPrenom() + " est vide");
 			System.out.println(
 					"************************************************************************************************");
 		}
@@ -702,7 +785,7 @@ public class ReseauSocial {
 				"Voici une liste d'utilisateurs. Entrer un numéro pour le choisir comme utilisateur principal");
 
 		int choix = choixClavier();
-		currentUser = users[choix];
+		currentUser = users.get(choix);
 		currentUserIndex = choix;
 		System.out.println(
 				"************************************************************************************************");

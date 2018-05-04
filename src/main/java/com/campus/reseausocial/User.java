@@ -1,5 +1,8 @@
 package com.campus.reseausocial;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class Utilisateur permet de créer des utilisateurs
  * 
@@ -16,22 +19,17 @@ public class User extends Personne {
 	/**
 	 * Tableau contenant la liste des amis Maximum 11 Amis
 	 */
-	private User[] friends = new User[10];
+	// private User[] friends = new User[10];
+	private List<User> friends = new ArrayList<User>();
 
-	/**
-	 * Itérateur message
-	 */
-	private int m = 0;
-
-	/**
-	 * Itérateur friend
-	 */
-	private int f = 0;
 
 	/**
 	 * Tableau contenant la liste des messages Maximum 11 messages
 	 */
-	private String[] messages = new String[10];
+	//private String[] messages = new String[10];
+	
+	private List<Message> messages = new ArrayList<Message>();
+	
 
 	/**
 	 * Initialisation de d'un utilisateur
@@ -43,7 +41,7 @@ public class User extends Personne {
 	 * @param dateNaissance
 	 *            Année de naissance de l'utilisateur
 	 */
-	public User(String nom, String prenom, String pseudo , String dateDeNaissance) {
+	public User(String nom, String prenom, String pseudo, String dateDeNaissance) {
 
 		this.nom = nom;
 		this.prenom = prenom;
@@ -135,7 +133,7 @@ public class User extends Personne {
 	 * 
 	 * @return friends
 	 */
-	public User[] getFriends() {
+	public List<User> getFriends() {
 		return friends;
 	}
 
@@ -147,8 +145,12 @@ public class User extends Personne {
 	 * 
 	 */
 	public void addFriends(User friend) {
-		this.friends[this.f] = friend;
-		this.f++;
+		this.friends.add(friend);
+	}
+	
+	public void delFriend(int numeroFriend) {
+		this.friends.remove(numeroFriend);
+		
 	}
 
 	/**
@@ -156,7 +158,7 @@ public class User extends Personne {
 	 * 
 	 * @return messages
 	 */
-	public String[] getMessages() {
+	public List<Message> getMessages() {
 		return messages;
 	}
 
@@ -167,16 +169,15 @@ public class User extends Personne {
 	 *            Message pour l'utilisateur
 	 * 
 	 */
-	public void addMessages(String message) {
-		this.messages[this.m] = message;
-		this.m++;
+	public void addMessages(Message message) {
+		this.messages.add(message);
 	}
 
 	/**
 	 * @param messages
 	 *            Tableau de messages
 	 */
-	public void setMessages(String[] messages) {
+	public void setMessages(List<Message> messages) {
 		this.messages = messages;
 	}
 
@@ -185,7 +186,7 @@ public class User extends Personne {
 	 * 
 	 */
 	public void viderMessages() {
-		this.setMessages(new String[10]);
+		this.setMessages(new ArrayList<Message>());
 	}
 
 	/**
@@ -194,9 +195,8 @@ public class User extends Personne {
 	 * @param nbre
 	 *            Numéro de l'index à supprimer
 	 */
-	public void delMessages(int nbre) {
-		this.messages[nbre] = null;
-		this.m--;
+	public void delMessages(int index) {
+		this.messages.remove(index);
 	}
 
 	/**
@@ -217,5 +217,12 @@ public class User extends Personne {
 	public int getNiveau() {
 		return 0;
 	}
+	
+	
+	public String fullName() {
+		return this.nom + " " + this.prenom;
+	}
+
+	
 
 }
